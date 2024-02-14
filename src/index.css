@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.main {
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  display: flex;
+}
+
+.menuContainer {
+  width: 250px;
+  padding: 5px 20px;
+  border-right: 2px solid;
+}
+
+.contentContainer {
+  padding: 5px 20px;
+  width: 100%;
+}

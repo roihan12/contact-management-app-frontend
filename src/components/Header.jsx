@@ -14,14 +14,17 @@ const Header = () => {
   return (
     <>
       {!auth ? (
+
         <Navbar fluid rounded>
           <Navbar.Brand
             href="https://flowbite-react.com"
-            className="self-center whitespace-nowrap text-2xl text-[#6C22A6] font-bold dark:text-white"
+            className="self-center whitespace-nowrap text-2xl text-[#402fda] font-bold dark:text-white"
           >
             {" "}
             Flow
-            <span className="text-2xl text-[#0E21A0] font-bold">Contact</span>
+            <span color="blue" className="text-2xl text-[#3156bb] font-bold">
+              Contact
+            </span>
           </Navbar.Brand>
           <div className=" sm:flex md:order-2 space-x-3 ">
             <Link to={"/login"}>
@@ -31,7 +34,7 @@ const Header = () => {
             </Link>
             <Link to={"/register"}>
               <Button color="blue" className="hidden sm:block">
-                Sign Up
+                Register
               </Button>
             </Link>
             <Navbar.Toggle />
@@ -44,16 +47,12 @@ const Header = () => {
             <Navbar.Link href="#">Contact</Navbar.Link>
             <Navbar.Link href="#" className="md:hidden">
               <Link to={"/login"}>
-                <Button color="light">
-                  Login
-                </Button>
+                <Button color="light">Login</Button>
               </Link>
             </Navbar.Link>
             <Navbar.Link href="/register" className="md:hidden">
               <Link to={"/register"}>
-                <Button color="blue">
-                  Sign Up
-                </Button>
+                <Button color="blue">Register</Button>
               </Link>
             </Navbar.Link>
           </Navbar.Collapse>
@@ -85,10 +84,11 @@ const Header = () => {
                 </span>
               </Dropdown.Header>
               <Dropdown.Item>Dashboard</Dropdown.Item>
-              <Dropdown.Item>Settings</Dropdown.Item>
+              <Dropdown.Item href="/profile">
+                Settings
+              </Dropdown.Item>
               <Dropdown.Item>Logout</Dropdown.Item>
             </Dropdown>
-            <Navbar.Toggle />
           </div>
         </Navbar>
       )}
