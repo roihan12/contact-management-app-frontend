@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import Header from "../components/Header";
+// import Header from "../components/Header";
 import UpdateProfileForm from "../components/UpdateProfileForm";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
@@ -44,7 +44,6 @@ const Profile = () => {
   }, [data, error, navigate]);
   return (
     <div>
-      <Header />
       <UpdateProfileForm
         handleSubmit={handleSubmit}
         register={register}

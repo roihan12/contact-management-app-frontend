@@ -13,7 +13,11 @@ const LoginForm = ({
     <div className="py-20 lg:py-6 2xl:py-40">
       <div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
         <div className="hidden lg:block lg:w-1/2" alt="Background">
-          <img src={undrawillustration} alt="illustrations"   className="object-contain h-60 w-96 mt-20"/>
+          <img
+            src={undrawillustration}
+            alt="illustrations"
+            className="object-contain h-60 w-96 mt-20"
+          />
         </div>
         <div className="w-full p-8 lg:w-1/2">
           <h2 className="text-2xl font-bold text-blue-700 text-center">
@@ -26,7 +30,7 @@ const LoginForm = ({
             aria-label="Sign in with Google"
           >
             <div className="px-4 py-3 ">
-             <img src={Google} alt="" className="h-6 w-6"  />
+              <img src={Google} alt="" className="h-6 w-6" />
             </div>
             <h1 className="px-4 py-3 w-5/6 text-center text-gray-600 font-bold">
               Sign in with Google
@@ -57,7 +61,9 @@ const LoginForm = ({
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   Password
                 </label>
-                <Link className="text-xs text-gray-500" to={"/forgot-password"}>Forgot Password?</Link>
+                <Link className="text-xs text-gray-500" to={"/forgot-password"}>
+                  Forgot Password?
+                </Link>
               </div>
               <input
                 className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
@@ -71,7 +77,7 @@ const LoginForm = ({
 
             <div className="mt-8">
               <Button
-               color="blue"
+                color="blue"
                 className="font-bold py-2 px-4 w-full rounded hover:bg-gray-600 "
                 isProcessing={setLoginUserLoading}
                 type="submit"
@@ -83,7 +89,8 @@ const LoginForm = ({
           <div className="mt-4 flex items-center justify-between">
             <span className="border-b w-1/5"></span>
             <Link to={"/register"} className="text-xs text-gray-500 uppercase">
-              or dont have an account? <span className="text-blue-500">register</span> 
+              or dont have an account?{" "}
+              <span className="text-blue-500">register</span>
             </Link>
             <span className="border-b w-1/5"></span>
           </div>

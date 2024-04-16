@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import secureLocalStorage from "react-secure-storage";
 import { Avatar, Button, Dropdown, Navbar } from "flowbite-react";
 
@@ -7,15 +7,27 @@ const Header = () => {
   const auth = secureLocalStorage.getItem("accessToken");
 
   let name = "user";
+  let email = "user@example.com";
   if (user) {
     name = user.fullName;
+    email = user.email;
   }
+  const navigate = useNavigate();
 
+  const handleLogout = () => {
+    secureLocalStorage.removeItem("acessToken");
+    secureLocalStorage.removeItem("refreshToken");
+    secureLocalStorage.removeItem("user");
+    navigate("/login");
+  };
   return (
     <>
       {!auth ? (
-
-        <Navbar fluid rounded>
+        <Navbar
+          fluid
+          rounded
+          className="bg-white border-b border-gray-700 fixed z-30 w-full"
+        >
           <Navbar.Brand
             href="https://flowbite-react.com"
             className="self-center whitespace-nowrap text-2xl text-[#402fda] font-bold dark:text-white"
@@ -71,8 +83,8 @@ const Header = () => {
               inline
               label={
                 <Avatar
+                  placeholderInitials={name.split(" ")[0].split("")[0]}
                   alt="User settings"
-                  img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
                   rounded
                 />
               }
@@ -80,14 +92,14 @@ const Header = () => {
               <Dropdown.Header>
                 <span className="block text-sm">{name}</span>
                 <span className="block truncate text-sm font-medium">
-                  name@flowbite.com
+                  {email}
                 </span>
               </Dropdown.Header>
               <Dropdown.Item>Dashboard</Dropdown.Item>
-              <Dropdown.Item href="/profile">
-                Settings
+              <Dropdown.Item href="/profile">Settings</Dropdown.Item>
+              <Dropdown.Item onClick={() => handleLogout()}>
+                Logout
               </Dropdown.Item>
-              <Dropdown.Item>Logout</Dropdown.Item>
             </Dropdown>
           </div>
         </Navbar>

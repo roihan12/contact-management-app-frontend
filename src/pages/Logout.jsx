@@ -1,9 +1,9 @@
 
+import Login from "./Login";
 
 const Logout = () => {
-  return (
-    <div>Logout</div>
-  )
-}
 
-export default Logout
+  return <Login />;
+};
+
+export default Logout;

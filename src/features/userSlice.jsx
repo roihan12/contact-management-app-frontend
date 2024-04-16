@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from "../auth/AxiosConfig";
 import secureLocalStorage from "react-secure-storage";
-import RefreshToken from "../auth/RefreshToken";
+// import RefreshToken from "../auth/RefreshToken";
 
 export const setLoginUser = createAsyncThunk(
   "user/setLoginUser",
@@ -54,7 +54,7 @@ export const setUpdateProfile = createAsyncThunk(
   "user/setUpdateProfile",
   async (data) => {
     try {
-      await RefreshToken()
+      // await RefreshToken();
       const newData = {};
 
       newData.fullName = data.fullName;

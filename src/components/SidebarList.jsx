@@ -4,38 +4,52 @@ import {
   HiChartPie,
   HiInbox,
   HiShoppingBag,
-  HiTable,
   HiUser,
 } from "react-icons/hi";
+import { Link, useNavigate } from "react-router-dom";
+import secureLocalStorage from "react-secure-storage";
 
 const SidebarList = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    secureLocalStorage.removeItem("acessToken");
+    secureLocalStorage.removeItem("refreshToken");
+    secureLocalStorage.removeItem("user");
+    navigate("/login");
+  };
+
   return (
-    <Sidebar aria-label="Sidebar with multi-level dropdown example">
+    <Sidebar
+      aria-label="Sidebar with multi-level dropdown example"
+      className="h-screen"
+    >
       <Sidebar.Items>
         <Sidebar.ItemGroup>
-          <Sidebar.Item href="#" icon={HiChartPie}>
-            Dashboard
+          <Sidebar.Item href="/" icon={HiChartPie}>
+            <span className="hidden sm:block">Dashboard</span>
           </Sidebar.Item>
-          <Sidebar.Collapse icon={HiShoppingBag} label="E-commerce">
-            <Sidebar.Item href="#">Products</Sidebar.Item>
-            <Sidebar.Item href="#">Sales</Sidebar.Item>
-            <Sidebar.Item href="#">Refunds</Sidebar.Item>
-            <Sidebar.Item href="#">Shipping</Sidebar.Item>
-          </Sidebar.Collapse>
           <Sidebar.Item href="#" icon={HiInbox}>
-            Inbox
+            <span className="hidden sm:block">Inbox</span>
           </Sidebar.Item>
           <Sidebar.Item href="#" icon={HiUser}>
-            Users
+            <span className="hidden sm:block">Users</span>
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiShoppingBag}>
-            Products
+          <Sidebar.Item
+            href="/contacts"
+            as={Link}
+            to={"/contacts"}
+            icon={HiShoppingBag}
+          >
+            <span className="hidden sm:block">Contacts</span>
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiArrowSmRight}>
-            Sign In
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiTable}>
-            Sign Up
+
+          <Sidebar.Item
+            icon={HiArrowSmRight}
+            as={Link}
+            onClick={() => handleLogout()}
+          >
+            <span className="hidden sm:block">Logout</span>
           </Sidebar.Item>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
